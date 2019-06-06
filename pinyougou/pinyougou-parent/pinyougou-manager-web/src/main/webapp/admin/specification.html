@@ -44,7 +44,7 @@
                     </button>
                     <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o"></i> 删除</button>
 
-                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i
+                    <button type="button" class="btn btn-default" title="刷新" onclick="reloadList();"><i
                             class="fa fa-refresh"></i> 刷新
                     </button>
                 </div>
@@ -52,8 +52,8 @@
         </div>
         <div class="box-tools pull-right">
             <div class="has-feedback">
-                规格名称：<input>
-                <button class="btn btn-default">查询</button>
+                规格名称：<input ng-model="searchEntity.specName">
+                <button class="btn btn-default" ng-click="reloadList()">查询</button>
             </div>
         </div>
         <!--工具栏/-->

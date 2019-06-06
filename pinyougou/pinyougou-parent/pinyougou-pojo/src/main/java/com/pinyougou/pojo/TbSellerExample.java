@@ -1701,8 +1701,18 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andBankAccountIsNull() {
+            addCriterion("bank_account is null");
+            return (Criteria) this;
+        }
+
         public Criteria andBankNameIsNotNull() {
             addCriterion("bank_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountIsNotNull() {
+            addCriterion("bank_account is not null");
             return (Criteria) this;
         }
 
@@ -1711,13 +1721,25 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andBankAccountEqualTo(String value) {
+            addCriterion("bank_account =", value, "bankAccount");
+            return (Criteria) this;
+        }
         public Criteria andBankNameNotEqualTo(String value) {
             addCriterion("bank_name <>", value, "bankName");
             return (Criteria) this;
         }
-
+        public Criteria andBankAccountNotEqualTo(String value) {
+            addCriterion("bank_account <>", value, "bankAccount");
+            return (Criteria) this;
+        }
         public Criteria andBankNameGreaterThan(String value) {
             addCriterion("bank_name >", value, "bankName");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountGreaterThan(String value) {
+            addCriterion("bank_account >", value, "bankAccount");
             return (Criteria) this;
         }
 
@@ -1726,8 +1748,19 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
+
+        public Criteria andBankAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("bank_account >=", value, "bankAccount");
+            return (Criteria) this;
+        }
+
         public Criteria andBankNameLessThan(String value) {
             addCriterion("bank_name <", value, "bankName");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountLessThan(String value) {
+            addCriterion("bank_account <", value, "bankAccount");
             return (Criteria) this;
         }
 
@@ -1736,8 +1769,17 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andBankAccountLessThanOrEqualTo(String value) {
+            addCriterion("bank_account <=", value, "bankAccount");
+            return (Criteria) this;
+        }
         public Criteria andBankNameLike(String value) {
             addCriterion("bank_name like", value, "bankName");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountLike(String value) {
+            addCriterion("bank_account like", value, "bankAccount");
             return (Criteria) this;
         }
 
@@ -1746,8 +1788,18 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andBankAccountNotLike(String value) {
+            addCriterion("bank_account not like", value, "bankAccount");
+            return (Criteria) this;
+        }
+
         public Criteria andBankNameIn(List<String> values) {
             addCriterion("bank_name in", values, "bankName");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountIn(List<String> values) {
+            addCriterion("bank_account in", values, "bankAccount");
             return (Criteria) this;
         }
 
@@ -1756,13 +1808,18 @@ public class TbSellerExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andBankNameBetween(String value1, String value2) {
-            addCriterion("bank_name between", value1, value2, "bankName");
+        public Criteria andBankAccountNotIn(List<String> values) {
+            addCriterion("bank_account not in", values, "bankAccount");
             return (Criteria) this;
         }
 
-        public Criteria andBankNameNotBetween(String value1, String value2) {
-            addCriterion("bank_name not between", value1, value2, "bankName");
+        public Criteria andBankAccountBetween(String value1, String value2) {
+            addCriterion("bank_account between", value1, value2, "bankAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankAccountNotBetween(String value1, String value2) {
+            addCriterion("bank_name not between", value1, value2, "bankAccount");
             return (Criteria) this;
         }
     }
