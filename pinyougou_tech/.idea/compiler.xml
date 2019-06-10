@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="pinyougou4_fastdfs" />
         <module name="pinyougou3_springsecurity" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pinyougou3_springsecurity" target="1.7" />
+      <module name="pinyougou4_fastdfs" target="1.5" />
       <module name="pinyougou_techs" target="1.5" />
     </bytecodeTargetLevel>
   </component>

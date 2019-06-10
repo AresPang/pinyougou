@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pinyougou4_fastdfs:war">
+    <output-path>$PROJECT_DIR$/pinyougou4_fastdfs/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pinyougou4_fastdfs</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pinyougou4_fastdfs-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="pinyougou4_fastdfs:war exploded" />
+    </root>
+  </artifact>
+</component>

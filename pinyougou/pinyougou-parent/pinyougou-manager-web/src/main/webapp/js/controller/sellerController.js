@@ -66,7 +66,7 @@ app.controller('sellerController' ,function($scope,$controller   ,sellerService)
 	}
 	
 	$scope.searchEntity={};//定义搜索对象 
-	
+	// $scope.searchEntity.status = $scope.selectRadioIds;
 	//搜索
 	$scope.search=function(page,rows){			
 		sellerService.search(page,rows,$scope.searchEntity).success(

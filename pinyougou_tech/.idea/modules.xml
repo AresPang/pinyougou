@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/pinyougou3_springsecurity/pinyougou3_springsecurity.iml" filepath="$PROJECT_DIR$/pinyougou3_springsecurity/pinyougou3_springsecurity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pinyougou4_fastdfs/pinyougou4_fastdfs.iml" filepath="$PROJECT_DIR$/pinyougou4_fastdfs/pinyougou4_fastdfs.iml" />
     </modules>
   </component>
 </project>

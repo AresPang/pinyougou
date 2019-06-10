@@ -110,5 +110,10 @@ public class ItemCatController {
 	public PageResult search(@RequestBody TbItemCat itemCat, int page, int rows  ){
 		return itemCatService.findPage(itemCat, page, rows);		
 	}
+
+	@RequestMapping("/findByPatentId")
+	public List<TbItemCat> findByPatentId(Long parentId){
+		return itemCatService.findByPatentId(parentId);
+	}
 	
 }

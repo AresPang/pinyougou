@@ -17,6 +17,7 @@ app.controller("baseController", function ($scope) {
     }
 
     $scope.selectIds = [];//用户勾选的ID集合
+
     //用户勾选复选框
     $scope.updateSelection = function ($event, id) {
         if ($event.target.checked) {//$event：事件对象 $event.target事件对应的dom input  $event.target.checked 复选框是否被选中
@@ -26,6 +27,10 @@ app.controller("baseController", function ($scope) {
             $scope.selectIds.splice(index, 1);//参数1：移除的位置 参数2 移除的个数
         }
     }
+
+   //用户勾选Radio状态复选框
+    $scope.selectRadioIds = [];//用于接收勾选的状态值Value
+
 
     $scope.jsonToString = function (jsonString, key) {
         var json = JSON.parse(jsonString);
