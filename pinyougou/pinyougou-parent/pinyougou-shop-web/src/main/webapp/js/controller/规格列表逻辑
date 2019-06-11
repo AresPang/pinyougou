@@ -1,0 +1,26 @@
+从模板中提取规格列表
+[{"id":27,"text":"网络"},{"id":32,"text":"机身内存"}]
+转化为 List<Map>
+遍历集合获取 id
+通过id查询规格选项列表
+[{"id":27,"text":"网络"，"options":[{网络选项实体1}，{网络选项实体2}]},
+{"id":32,"text":"机身内存"，"options":[{机身内存选项实体1}，{机身内存选项实体2}]}
+]
+
+[{"attributeName":"网络制式","attributeValue":["移动3G","移动4G"]},{"attributeName":"屏幕尺寸","attributeValue":["6寸","5.5寸"]}]
+两种情况：
+（1）当规格选项attributeName的值已经存在
+（2）当规格选项attributeName的值不存在
+遍历：
+编写通用方法，在集合中查询对象的某个属性值
+$scope.entity = {goodsDesc:{itemImages:[],specificationItems:[]}}
+
+克隆
+    （1）浅克隆：var a= {}，var b = a;
+    （2）深克隆：var a= {name:"abc"}，var b = {name:{}};
+
+前端深克隆小技巧：
+    var b = JSON.parse(JSON.stringify(a))
+
+sku解决方法
+[{"spec":{"网络":"移动3G","机身内存":"32G"},"price":0,"num":99999,"status":"0","isDefault":"0"},{"spec":{"网络":"移动3G","机身内存":"128G"},"price":0,"num":99999,"status":"0","isDefault":"0"},{"spec":{"网络":"移动4G","机身内存":"32G"},"price":0,"num":99999,"status":"0","isDefault":"0"},{"spec":{"网络":"移动4G","机身内存":"128G"},"price":0,"num":99999,"status":"0","isDefault":"0"}]
