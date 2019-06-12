@@ -1,5 +1,5 @@
 //控制层
-app.controller('sellerController', function ($scope, $controller, sellerService) {
+app.controller('sellerController', function ($scope, $controller, sellerService, loginService) {
 
     $controller('baseController', {$scope: $scope});//继承
 
@@ -31,10 +31,22 @@ app.controller('sellerController', function ($scope, $controller, sellerService)
         );
     }
 
+    //读取模板id
+    $scope.$watch('loginName', function (newValue, oldValue) {
+        $scope.findOne(newValue);
+    });
+
+    //显示当前用户名
+    $scope.getLoginName = function () {
+        loginService.loginName().success(function (response) {
+            $scope.loginName = response.loginName;
+        })
+    }
+
     //保存
     $scope.save = function () {
         var serviceObject;//服务层对象
-        if ($scope.entity.id != null) {//如果有ID
+        if ($scope.entity.sellerId != null) {//如果有ID
             serviceObject = sellerService.update($scope.entity); //修改
         } else {
             serviceObject = sellerService.add($scope.entity);//增加
