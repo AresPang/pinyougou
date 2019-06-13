@@ -19,6 +19,7 @@ import com.pinyougou.pojo.TbTypeTemplateExample.Criteria;
 import com.pinyougou.sellergoods.service.TypeTemplateService;
 
 import entity.PageResult;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 服务实现层
@@ -118,6 +119,7 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
     }
 
     @Override
+    @Transactional
     public List<Map> findSpecList(Long id) {
         //查询模板
         TbTypeTemplate typeTemplate = typeTemplateMapper.selectByPrimaryKey(id);

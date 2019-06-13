@@ -46,7 +46,7 @@ app.controller('sellerController', function ($scope, $controller, sellerService,
     //保存
     $scope.save = function () {
         var serviceObject;//服务层对象
-        if ($scope.entity.sellerId != null) {//如果有ID
+        if ($scope.entity.id != null) {//如果有ID
             serviceObject = sellerService.update($scope.entity); //修改
         } else {
             serviceObject = sellerService.add($scope.entity);//增加
