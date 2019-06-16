@@ -136,4 +136,28 @@ public class GoodsController {
         return goodsService.findPage(goods, page, rows);
     }
 
+    @RequestMapping("/updateIsMarketable")
+    public Result updateIsMarketable(Long[] ids, String isMarketable) {
+        try {
+            goodsService.updateIsMarketable(ids, isMarketable);
+            return new Result(true, "上下架成功");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return new Result(false, e.getMessage());
+        } catch (Exception e) {
+            return new Result(false, "上下架失败");
+        }
+    }
+    @RequestMapping("/goodsCommitCheck")
+    public Result goodsCommitCheck(Long[] ids){
+        try {
+            goodsService.goodsCommitCheck(ids);
+            return new Result(true,"提交审核成功");
+        } catch (RuntimeException e) {
+            return new Result(false,e.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,"提交审核失败");
+        }
+    }
 }

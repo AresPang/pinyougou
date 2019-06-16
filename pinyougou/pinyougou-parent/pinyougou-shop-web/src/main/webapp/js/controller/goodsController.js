@@ -245,4 +245,35 @@ app.controller('goodsController', function ($scope, $controller, goodsService, u
 
     }
 
+    //商品上下架
+    //$scope.isMarketable = ['下架', '上架'];
+    $scope.updateIsMarketable = function (isMarketable) {
+        //获取选中的复选框
+        goodsService.updateIsMarketable($scope.selectIds, isMarketable).success(
+            function (response) {
+                if (response.success) {
+                    $scope.reloadList();
+                    $scope.selectIds = [];
+                }else {
+                    alert(response.message);
+                    $scope.selectIds = [];
+                }
+            }
+        );
+    }
+
+    //提交审核
+    $scope.goodsCommitCheck = function () {
+        goodsService.goodsCommitCheck($scope.selectIds).success(
+            function (response) {
+                if(response.success){
+                    $scope.reloadList();
+                    $scope.selectIds = [];
+                }else {
+                    alert(response.message);
+                    $scope.selectIds = [];
+                }
+            }
+        );
+    }
 });

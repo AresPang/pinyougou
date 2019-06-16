@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TbBrandExample implements Serializable {
+
     protected String orderByClause;
 
     protected boolean distinct;

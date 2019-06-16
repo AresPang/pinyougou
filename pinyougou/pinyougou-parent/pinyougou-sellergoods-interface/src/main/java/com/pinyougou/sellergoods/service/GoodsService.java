@@ -65,5 +65,17 @@ public interface GoodsService {
 	 * @param status 审核后的状态
 	 */
 	public void updateStatus(Long[] ids,String status);
-	
+
+	/**
+	 * 商品上下架
+	 * @param ids 选中的商品
+	 * @param isMarketable  1上架 0 下架 只有通过审核的商品才能上下架
+	 */
+	public void updateIsMarketable(Long[] ids,String isMarketable );
+
+	/**
+	 * 商家商品提交审核
+	 * @param ids
+	 */
+	public void goodsCommitCheck(Long[] ids);
 }

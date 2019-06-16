@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Administrator
  */
 @Service
-@Transactional
+
 public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
@@ -68,7 +68,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public void add(Goods goods) {
-        goods.getGoods().setAuditStatus("0");//未审核
+        //goods.getGoods().setAuditStatus("0");//未审核(在新增商品时不需要)
         goodsMapper.insert(goods.getGoods());//插入商品基本信息
         goods.getGoodsDesc().setGoodsId(goods.getGoods().getId());//基本表的基本信息的id给扩展表
         goodsDescMapper.insert(goods.getGoodsDesc());//插入商品扩展表
@@ -174,9 +174,9 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public void delete(Long[] ids) {
         for (Long id : ids) {
-           TbGoods goods = goodsMapper.selectByPrimaryKey(id);
-           goods.setIsDelete("1");
-           goodsMapper.updateByPrimaryKey(goods);
+            TbGoods goods = goodsMapper.selectByPrimaryKey(id);
+            goods.setIsDelete("1");
+            goodsMapper.updateByPrimaryKey(goods);
         }
     }
 
@@ -227,7 +227,32 @@ public class GoodsServiceImpl implements GoodsService {
             TbGoods goods = goodsMapper.selectByPrimaryKey(id);
             goods.setAuditStatus(status);
             goodsMapper.updateByPrimaryKey(goods);
+        }
+    }
 
+    @Override
+    public void updateIsMarketable(Long[] ids, String isMarketable) {
+        for (Long id : ids) {
+            TbGoods goods = goodsMapper.selectByPrimaryKey(id);
+            if ("1".equals(goods.getAuditStatus())) {
+                goods.setIsMarketable(isMarketable);
+                goodsMapper.updateByPrimaryKey(goods);
+            } else {
+                throw new RuntimeException("只有审核通过的商品才能上下架");
+            }
+        }
+    }
+
+    @Override
+    public void goodsCommitCheck(Long[] ids) {
+        for (Long id : ids) {
+            TbGoods goods = goodsMapper.selectByPrimaryKey(id);
+            if(!"1".equals(goods.getAuditStatus() )){
+                goods.setAuditStatus("0");
+                goodsMapper.updateByPrimaryKey(goods);
+            }else {
+                throw new RuntimeException("该商品已经经过审核");
+            }
         }
     }
 

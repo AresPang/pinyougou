@@ -51,7 +51,14 @@
                     <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i
                             class="fa fa-trash-o"></i> 删除
                     </button>
-                    <button type="button" class="btn btn-default" title="提交审核"><i class="fa fa-check"></i> 提交审核</button>
+                    <button type="button" class="btn btn-default" title="下架" ng-click="updateIsMarketable('0')"><i
+                            class="fa fa-trash-o"></i> 下架
+                    </button>
+
+                    <button type="button" class="btn btn-default" title="上架" ng-click="updateIsMarketable('1')"><i
+                            class="fa fa-trash-o"></i> 上架
+
+                    <button type="button" class="btn btn-default" title="提交审核" ng-click="goodsCommitCheck()"><i class="fa fa-check"></i> 提交审核</button>
                     <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i
                             class="fa fa-ban"></i> 屏蔽
                     </button>
